@@ -1,0 +1,62 @@
+from algopy import ARC4Contract, UInt64, Txn, LocalState, itxn
+from algopy.arc4 import abimethod
+
+
+class AlgoPool(ARC4Contract):
+
+    def __init__(self) -> None:
+        self.pool = UInt64(0)
+        self.total_shares = UInt64(0)
+        self.shares = LocalState(UInt64, key="shares")
+
+    @abimethod(allow_actions=["OptIn"])
+    def opt_in(self) -> None:
+        self.shares[Txn.sender] = UInt64(0)
+
+    @abimethod()
+    def deposit(self, amount: UInt64) -> UInt64:
+        assert amount > 0, "Amount must be positive"
+        user_shares = self.shares.get(Txn.sender, UInt64(0))
+
+        if self.pool == 0:
+            minted = amount
+        else:
+            minted = (amount * self.total_shares) // self.pool
+
+        self.pool += amount
+        self.total_shares += minted
+        self.shares[Txn.sender] = user_shares + minted
+
+        return minted
+
+    @abimethod()
+    def withdraw(self, share_amount: UInt64) -> UInt64:
+        assert share_amount > 0, "Share amount must be positive"
+        user_shares = self.shares.get(Txn.sender, UInt64(0))
+        assert user_shares >= share_amount, "Insufficient shares"
+        assert self.total_shares > 0, "No shares in pool"
+
+        algo = (share_amount * self.pool) // self.total_shares
+        assert algo > 0, "Nothing to withdraw"
+
+        # Update accounting first
+        self.pool -= algo
+        self.total_shares -= share_amount
+        self.shares[Txn.sender] = user_shares - share_amount
+
+        # Payout real ALGO from app account to investor
+        itxn.Payment(
+            receiver=Txn.sender,
+            amount=algo,
+            fee=UInt64(0),
+        ).submit()
+
+        return algo
+
+    @abimethod(readonly=True)
+    def get_pool(self) -> UInt64:
+        return self.pool
+
+    @abimethod(readonly=True)
+    def get_total_shares(self) -> UInt64:
+        return self.total_shares
