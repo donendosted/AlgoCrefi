@@ -100,7 +100,7 @@ const WalletDialog = ({
                             disabled={isConnecting}
                             className={`
                                 w-full p-[2px] rounded-lg
-                                bg-gradient-to-r from-violet-600 via-fuchsia-500 to-cyan-400
+                                bg-gray-400
                                 transition
                                 ${isConnecting
                                     ? "opacity-50 cursor-not-allowed"
