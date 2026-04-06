@@ -95,6 +95,12 @@ graph TB
 - **Event-Driven Updates**: Real-time pool analytics through polling with 5-second intervals
 - **Stateless API**: JWT-based authentication enabling horizontal scalability
 
+<img width="1919" height="726" alt="image" src="https://github.com/user-attachments/assets/5c8db07d-2d8c-46c8-951e-0a15a8669c72" />
+<img width="1900" height="962" alt="image" src="https://github.com/user-attachments/assets/bcc78d9b-846d-431f-b830-35509805792c" />
+<img width="1920" height="1080" alt="scrn-2026-04-06-15-00-22" src="https://github.com/user-attachments/assets/b29386ca-98f2-40bc-8197-c5f6ba072e83" />
+<img width="996" height="264" alt="image" src="https://github.com/user-attachments/assets/173b432a-7423-4ffe-80ae-0348d42da367" />
+
+
 ## Technology Stack
 
 ### Frontend Technologies
@@ -557,7 +563,7 @@ docker run -p 5000:5000 --env-file .env algocrefi-backend
 
 This project is in active development and should be considered experimental. The following components are functional:
 
-✅ **Implemented**:
+**Implemented**:
 - Multi-wallet authentication (Pera, Lute)
 - Liquidity pool deposits and withdrawals
 - Smart contract interactions
@@ -565,14 +571,14 @@ This project is in active development and should be considered experimental. The
 - JWT-based API authentication
 - Share-based accounting system
 
-⚠️ **In Progress**:
+**In Progress**:
 - Collateralized lending implementation
 - Aura token minting and burning
 - Interest calculation mechanisms
 - Comprehensive error handling
 - Production deployment configurations
 
-🔮 **Planned**:
+**Planned**:
 - Exodus wallet integration
 - Advanced analytics dashboard
 - Governance token implementation
@@ -627,4 +633,4 @@ SOFTWARE.
 
 ---
 
-**Built with ❤️ on Algorand by team RupanDos**
+**Built with ❤️ on Algorand by RupanDos**
