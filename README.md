@@ -99,6 +99,9 @@ graph TB
 <img width="1900" height="962" alt="image" src="https://github.com/user-attachments/assets/bcc78d9b-846d-431f-b830-35509805792c" />
 <img width="1920" height="1080" alt="scrn-2026-04-06-15-00-22" src="https://github.com/user-attachments/assets/b29386ca-98f2-40bc-8197-c5f6ba072e83" />
 <img width="996" height="264" alt="image" src="https://github.com/user-attachments/assets/173b432a-7423-4ffe-80ae-0348d42da367" />
+<img width="1919" height="1077" alt="image" src="https://github.com/user-attachments/assets/7b3f44fc-3dd7-4d41-b977-37e29cfadb81" />
+<img width="1900" height="962" alt="image" src="https://github.com/user-attachments/assets/03438840-4cab-4ef8-8c46-fd5c559ceb46" />
+
 
 
 ## Technology Stack
